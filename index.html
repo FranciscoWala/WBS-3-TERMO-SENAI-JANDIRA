@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de Estudo PMP — WBS / EAP</title>
+  <meta name="description" content="Material de apoio completo e prático para estudar WBS/EAP para o PMP 2026, com foco em projetos de software, decomposição, 100%, work packages, control accounts, WBS dictionary e questões comentadas." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">PMP • WBS / EAP • 2026</span>
+        <h1>Work Breakdown Structure<br><span>da teoria à prática</span></h1>
+        <p class="lead">Guia de estudo completo, profissional e orientado a cenários reais de projetos de software. O objetivo não é decorar uma árvore: é aprender a construí-la, validá-la e reconhecer pegadinhas de prova.</p>
+        <div class="hero-meta">
+          <span>Foco principal: Software</span>
+          <span>PMBOK® Guide — 8ª edição</span>
+          <span>PMP Exam — 2026</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="card-label">Núcleo para memorizar</div>
+        <div class="formula">ESCOPO → WBS → WORK PACKAGES → ATIVIDADES → CRONOGRAMA</div>
+        <p>WBS organiza o <strong>o que precisa ser entregue</strong>. O cronograma trabalha <strong>quando, em que sequência e por quanto tempo</strong>.</p>
+      </aside>
+    </div>
+  </header>
+
+  <div class="layout container">
+    <aside class="sidebar">
+      <div class="side-title">Navegação</div>
+      <nav>
+        <a href="#visao">1. Visão executiva</a>
+        <a href="#conceito">2. Conceito PMI</a>
+        <a href="#anatomia">3. Anatomia</a>
+        <a href="#100">4. Regra dos 100%</a>
+        <a href="#decomposicao">5. Decomposição</a>
+        <a href="#wp">6. Work package</a>
+        <a href="#ca">7. Control account</a>
+        <a href="#dictionary">8. WBS Dictionary</a>
+        <a href="#baseline">9. Scope Baseline</a>
+        <a href="#diferencas">10. Diferenças</a>
+        <a href="#metodo">11. Montar do zero</a>
+        <a href="#software">12. Caso de software</a>
+        <a href="#seuexemplo">13. Análise do seu exemplo</a>
+        <a href="#vizinhanca">14. Processos vizinhos</a>
+        <a href="#pegadinhas">15. Pegadinhas</a>
+        <a href="#checklist">16. Checklist</a>
+        <a href="#simulado">17. Simulado</a>
+        <a href="#gabarito">18. Gabarito comentado</a>
+        <a href="#estudos">19. O que estudar além</a>
+      </nav>
+      <button id="printBtn" class="btn ghost">Imprimir / salvar PDF</button>
+    </aside>
+
+    <main class="content">
+      <section id="visao" class="section">
+        <div class="section-kicker">01 • visão executiva</div>
+        <h2>O que você realmente precisa saber para a prova</h2>
+        <div class="grid-3">
+          <article class="mini-card accent"><b>WBS</b><p>Decomposição hierárquica do escopo total do projeto em componentes menores e gerenciáveis, orientada a entregas/resultados.</p></article>
+          <article class="mini-card"><b>100%</b><p>Os filhos devem representar 100% do pai; a WBS contém todo o trabalho do escopo e não inclui trabalho fora dele.</p></article>
+          <article class="mini-card"><b>Work package</b><p>Nível mais baixo da WBS, suficientemente gerenciável para estimar, atribuir, executar, acompanhar e medir.</p></article>
+        </div>
+        <div class="callout strong"><span class="icon">★</span><div><strong>Regra mental de prova:</strong> pergunte primeiro “isto é uma entrega/resultado ou é uma atividade?” Depois pergunte “os filhos cobrem 100% do pai?”</div></div>
+      </section>
+
+      <section id="conceito" class="section">
+        <div class="section-kicker">02 • conceito</div>
+        <h2>WBS segundo a visão do PMI</h2>
+        <p>O PMI trata a WBS como uma decomposição hierárquica do trabalho/escopo do projeto. A boa prática é que a estrutura seja <strong>deliverable-oriented</strong>: ela organiza o que o projeto precisa produzir, entregar ou concluir, em vez de ser simplesmente uma lista de ações.</p>
+        <div class="two-col">
+          <div>
+            <h3>O que a WBS responde</h3>
+            <ul class="clean"><li>Quais resultados e entregas compõem o escopo?</li><li>Quais subentregas formam cada resultado?</li><li>Qual é a menor unidade útil para controle?</li><li>Existe algo faltando ou algo que não deveria estar no projeto?</li></ul>
+          </div>
+          <div class="compare-card">
+            <div class="compare-row bad"><b>❌ “Codificar módulo de login”</b><span>ação / atividade</span></div>
+            <div class="compare-row good"><b>✅ “Módulo de autenticação implementado”</b><span>resultado / entrega</span></div>
+          </div>
+        </div>
+        <div class="note"><strong>Atualização de referência:</strong> o PMBOK® Guide — 8ª edição foi publicado em novembro de 2025. O PMI informa que a 8ª edição mantém princípios e domínios da 7ª, mas reintroduz orientação de processos de forma evoluída e não prescritiva. Para o exame lançado em julho de 2026, use o ECO 2026 junto com o PMBOK 8.</div>
+      </section>
+
+      <section id="anatomia" class="section">
+        <div class="section-kicker">03 • anatomia</div>
+        <h2>A arquitetura da WBS</h2>
+        <div class="tree">
+          <div class="node root">1. SISTEMA DE GESTÃO</div>
+          <div class="connector"></div>
+          <div class="branches">
+            <div class="branch"><div class="node l1">1.1 Aplicação</div><div class="down"></div><div class="node l2">1.1.1 Autenticação</div><div class="down"></div><div class="node wp">1.1.1.1 Autenticação implementada</div></div>
+            <div class="branch"><div class="node l1">1.2 Dados</div><div class="down"></div><div class="node l2">1.2.1 Banco</div><div class="down"></div><div class="node wp">1.2.1.1 Banco configurado</div></div>
+            <div class="branch"><div class="node l1">1.3 Implantação</div><div class="down"></div><div class="node l2">1.3.1 Produção</div><div class="down"></div><div class="node wp">1.3.1.1 Ambiente de produção operacional</div></div>
+          </div>
+        </div>
+        <div class="legend"><span class="pill blue">Componente</span><span class="pill yellow">Entrega</span><span class="pill green">Work package</span></div>
+        <p class="small">A quantidade de níveis não é fixa. O que importa é chegar ao nível de detalhe necessário para executar, monitorar e controlar o trabalho sem criar uma árvore artificialmente profunda.</p>
+      </section>
+
+      <section id="100" class="section">
+        <div class="section-kicker">04 • princípio central</div>
+        <h2>Regra dos 100%</h2>
+        <div class="formula-box">Σ filhos = 100% do pai</div>
+        <div class="two-col">
+          <div class="example-block good-block"><h3>✅ Exemplo</h3><pre>1. Plataforma de vendas
+├─ 1.1 Frontend
+├─ 1.2 Backend
+├─ 1.3 Banco de dados
+└─ 1.4 Implantação</pre><p>Se essas quatro parcelas juntas representam todo o escopo do elemento “Plataforma de vendas”, o nível está coerente.</p></div>
+          <div class="example-block bad-block"><h3>❌ Incompleto</h3><pre>1. Plataforma de vendas
+├─ 1.1 Frontend
+├─ 1.2 Backend
+└─ 1.3 Banco de dados</pre><p>Se também existe segurança, infraestrutura e implantação dentro do escopo, algo ficou de fora.</p></div>
+        </div>
+        <div class="callout"><span class="icon">100%</span><div><strong>O 100% vale em todos os níveis.</strong> A regra não serve apenas para a raiz. Os filhos de cada componente devem somar exatamente o trabalho representado pelo pai.</div></div>
+      </section>
+
+      <section id="decomposicao" class="section">
+        <div class="section-kicker">05 • decomposição</div>
+        <h2>Como decompor sem transformar a WBS em cronograma</h2>
+        <ol class="steps">
+          <li><b>Comece pelo resultado do projeto.</b><span>Ex.: “Sistema web de gestão implantado e aceito”.</span></li>
+          <li><b>Identifique grandes entregas.</b><span>Ex.: aplicação, dados, integrações, implantação, documentação.</span></li>
+          <li><b>Quebre cada entrega em subentregas.</b><span>Use componentes que façam sentido para a solução.</span></li>
+          <li><b>Repita até chegar a unidades gerenciáveis.</b><span>O nível mais baixo útil torna-se candidato a work package.</span></li>
+          <li><b>Faça o teste da entrega.</b><span>O nome deve descrever um resultado claro, não apenas uma ação.</span></li>
+          <li><b>Faça o teste dos 100%.</b><span>Procure lacunas, excesso e sobreposição.</span></li>
+        </ol>
+        <div class="stop-box"><strong>Quando parar?</strong><br>Quando continuar decompondo deixar de aumentar o controle ou quando o componente já for pequeno o bastante para ser estimado, atribuído, executado, monitorado e medido com clareza.</div>
+      </section>
+
+      <section id="wp" class="section">
+        <div class="section-kicker">06 • work package</div>
+        <h2>Work package: o nível operacional da WBS</h2>
+        <p>O work package é o nível mais baixo da WBS. Ele representa um pedaço de escopo suficientemente pequeno para ser administrado, sem exigir que a WBS já seja uma lista de tarefas.</p>
+        <div class="grid-4">
+          <div class="metric"><strong>Estimar</strong><span>custos / esforço / recursos</span></div>
+          <div class="metric"><strong>Atribuir</strong><span>responsabilidade</span></div>
+          <div class="metric"><strong>Controlar</strong><span>progresso e desempenho</span></div>
+          <div class="metric"><strong>Medir</strong><span>resultado / aceitação</span></div>
+        </div>
+        <div class="warning"><strong>Não confunda:</strong> work package ≠ atividade. Um work package pode ser decomposto em várias atividades no planejamento do cronograma.</div>
+      </section>
+
+      <section id="ca" class="section">
+        <div class="section-kicker">07 • control account</div>
+        <h2>Control account</h2>
+        <p>É um ponto de controle gerencial em que escopo, orçamento e cronograma se integram para acompanhamento de desempenho. Work packages ficam dentro de control accounts.</p>
+        <pre class="diagram-code">WBS
+└─ Control Account
+   ├─ Work Package A
+   ├─ Work Package B
+   └─ Work Package C</pre>
+        <p class="small">O conceito aparece também em materiais clássicos do PMI associados a EVM. Em uma questão, pense em control account como “ponto onde o trabalho é gerenciado e medido”, não como uma tarefa.</p>
+      </section>
+
+      <section id="dictionary" class="section">
+        <div class="section-kicker">08 • dicionário</div>
+        <h2>WBS Dictionary</h2>
+        <p>A árvore mostra a estrutura; o dicionário elimina ambiguidades. Para cada elemento relevante, o projeto pode registrar informações como descrição do escopo, critérios de aceitação, responsável, marcos, recursos, premissas, restrições e outras informações úteis ao controle.</p>
+        <div class="dictionary">
+          <div><span>WBS ID</span><b>1.2.1</b></div>
+          <div><span>Elemento</span><b>Módulo de Autenticação</b></div>
+          <div><span>Descrição</span><b>Permitir cadastro, login, logout e recuperação de acesso.</b></div>
+          <div><span>Critérios de aceitação</span><b>Casos aprovados; requisitos de segurança atendidos; aceite formal.</b></div>
+          <div><span>Responsável</span><b>Tech Lead / equipe de desenvolvimento</b></div>
+          <div><span>Exclusões</span><b>Autenticação de terceiros não prevista no escopo.</b></div>
+        </div>
+      </section>
+
+      <section id="baseline" class="section">
+        <div class="section-kicker">09 • scope baseline</div>
+        <h2>WBS dentro da Scope Baseline</h2>
+        <div class="baseline-grid">
+          <div class="baseline-box"><b>Project Scope Statement</b><span>O que está no escopo, entregas, critérios, exclusões e fronteiras.</span></div>
+          <div class="plus">+</div>
+          <div class="baseline-box"><b>WBS</b><span>Estrutura hierárquica do escopo.</span></div>
+          <div class="plus">+</div>
+          <div class="baseline-box"><b>WBS Dictionary</b><span>Detalhamento e definição dos elementos.</span></div>
+        </div>
+        <div class="result">= <strong>Scope Baseline</strong></div>
+        <div class="note">Pergunta típica: “Aprovada a baseline, o gerente simplesmente edita a WBS quando alguém pede uma nova entrega?” <strong>Não.</strong> Uma mudança de escopo deve seguir o mecanismo de mudança apropriado.</div>
+      </section>
+
+      <section id="diferencas" class="section">
+        <div class="section-kicker">10 • diferenças críticas</div>
+        <h2>O mapa mental das diferenças</h2>
+        <div class="table-wrap"><table><thead><tr><th>Conceito</th><th>Pergunta principal</th><th>Exemplo em software</th></tr></thead><tbody>
+          <tr><td><strong>Product Scope</strong></td><td>Quais características/funções o produto terá?</td><td>Login, dashboard, exportação.</td></tr>
+          <tr><td><strong>Project Scope</strong></td><td>Qual trabalho é necessário para entregar o produto?</td><td>Análise, desenvolvimento, testes, implantação.</td></tr>
+          <tr><td><strong>WBS</strong></td><td>Como esse escopo é decomposto hierarquicamente?</td><td>Aplicação → autenticação → componente/entrega.</td></tr>
+          <tr><td><strong>Work Package</strong></td><td>Qual é a menor unidade gerenciável da WBS?</td><td>Autenticação implementada.</td></tr>
+          <tr><td><strong>Activity</strong></td><td>Quais ações precisam ser feitas para produzir o work package?</td><td>Implementar login, criar testes, corrigir defeitos.</td></tr>
+          <tr><td><strong>Schedule</strong></td><td>Quando, em que sequência e por quanto tempo?</td><td>Datas, dependências, duração, marcos.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="metodo" class="section">
+        <div class="section-kicker">11 • método do zero</div>
+        <h2>Como construir uma WBS sozinho</h2>
+        <div class="method-card"><div class="method-number">1</div><div><h3>Leia o objetivo sem pensar em tarefas</h3><p>Extraia produto, serviço, resultado, clientes e critérios de sucesso.</p></div></div>
+        <div class="method-card"><div class="method-number">2</div><div><h3>Liste as entregas principais</h3><p>Use substantivos/resultados: “API integrada”, “ambiente de produção configurado”, “usuários treinados”.</p></div></div>
+        <div class="method-card"><div class="method-number">3</div><div><h3>Decomponha por lógica consistente</h3><p>Dentro de cada ramo, escolha um critério coerente: componente do produto, fase, subentrega, ambiente etc. Evite misturar critérios sem necessidade.</p></div></div>
+        <div class="method-card"><div class="method-number">4</div><div><h3>Teste o nível de gerenciabilidade</h3><p>Quando o item puder ser estimado, atribuído e controlado com clareza, você está próximo de um work package.</p></div></div>
+        <div class="method-card"><div class="method-number">5</div><div><h3>Teste 100%, exclusividade e fronteiras</h3><p>Sem lacunas, sem trabalho fora do escopo e sem o mesmo trabalho contado duas vezes.</p></div></div>
+        <div class="method-card"><div class="method-number">6</div><div><h3>Só depois derive atividades</h3><p>Retire os work packages da árvore e determine o que precisa ser feito para produzi-los.</p></div></div>
+      </section>
+
+      <section id="software" class="section">
+        <div class="section-kicker">12 • caso profissional</div>
+        <h2>Exemplo completo: sistema web de gestão</h2>
+        <p><strong>Escopo resumido:</strong> desenvolver e implantar um sistema web para uma empresa controlar clientes, estoque, vendas e relatórios.</p>
+        <div class="software-tree">
+          <div class="sroot">1. Sistema Web de Gestão</div>
+          <div class="srow">
+            <div class="sbranch"><h4>1.1 Solução de negócio</h4><p>1.1.1 Requisitos aprovados</p><p>1.1.2 Regras de negócio definidas</p><p>1.1.3 Critérios de aceitação definidos</p></div>
+            <div class="sbranch"><h4>1.2 Aplicação</h4><p>1.2.1 Autenticação implementada</p><p>1.2.2 Gestão de clientes implementada</p><p>1.2.3 Gestão de estoque implementada</p><p>1.2.4 Vendas implementadas</p><p>1.2.5 Relatórios implementados</p></div>
+            <div class="sbranch"><h4>1.3 Plataforma técnica</h4><p>1.3.1 Banco configurado</p><p>1.3.2 APIs integradas</p><p>1.3.3 Segurança configurada</p></div>
+            <div class="sbranch"><h4>1.4 Implantação e transição</h4><p>1.4.1 Ambiente de produção operacional</p><p>1.4.2 Usuários treinados</p><p>1.4.3 Sistema aceito e disponibilizado</p></div>
+          </div>
+        </div>
+        <div class="translation"><h3>Depois, e somente depois, transforme um work package em atividades</h3><div><span>WP</span><b>1.2.4 Vendas implementadas</b></div><div class="arrow">↓</div><div class="activities"><span>Levantar regras</span><span>Projetar solução</span><span>Implementar</span><span>Testar</span><span>Corrigir defeitos</span><span>Obter aceite</span></div></div>
+      </section>
+
+      <section id="seuexemplo" class="section">
+        <div class="section-kicker">13 • análise do seu material</div>
+        <h2>Correção crítica do exemplo que você trouxe</h2>
+        <div class="analysis-table"><div class="analysis-row head"><b>Item</b><b>Avaliação</b><b>O que eu faria</b></div>
+          <div class="analysis-row"><span>Planejamento</span><em class="amber">⚠ Validar</em><span>Como fase pode ser aceitável, mas confirme que os itens representam escopo do projeto e não apenas pré-venda.</span></div>
+          <div class="analysis-row"><span>Definição da Metodologia</span><em class="amber">⚠ Genérico</em><span>Preferir um resultado como “metodologia/padrão de desenvolvimento definido” e decompor se necessário.</span></div>
+          <div class="analysis-row"><span>Codificação / Programação</span><em class="red">✗ Parece atividade</em><span>Trocar por entregas do produto: módulos, APIs, integrações e componentes implementados.</span></div>
+          <div class="analysis-row"><span>Documentação</span><em class="amber">⚠ Genérico</em><span>Separar documentação técnica, operação, implantação e usuário quando isso fizer parte do escopo.</span></div>
+          <div class="analysis-row"><span>Testes Iniciais</span><em class="amber">⚠ Genérico</em><span>Expressar o resultado: “produto validado”, “testes de integração concluídos” etc.</span></div>
+          <div class="analysis-row"><span>Operação Assistida</span><em class="amber">⚠ Atenção</em><span>Verificar se é uma etapa temporária de transição ou se você está misturando operações contínuas com o projeto.</span></div>
+          <div class="analysis-row"><span>Suporte ao Cliente</span><em class="amber">⚠ Contextual</em><span>Pode ser transição/garantia do projeto; se for suporte permanente, tende a ser operação.</span></div>
+          <div class="analysis-row"><span>Contrato de serviços técnicos</span><em class="amber">⚠ Contextual</em><span>Deve entrar apenas se estiver dentro do escopo contratado do projeto.</span></div>
+        </div>
+        <div class="callout"><span class="icon">→</span><div><strong>Diagnóstico:</strong> sua árvore é visualmente coerente e hierárquica, mas vários nós estão escritos como ações, e alguns podem representar atividade operacional ou pré-venda. Para uma WBS de estudo PMP, eu a refinaria para resultados verificáveis.</div></div>
+      </section>
+
+      <section id="vizinhanca" class="section">
+        <div class="section-kicker">14 • processos vizinhos</div>
+        <h2>Onde a WBS se conecta ao restante do planejamento</h2>
+        <div class="flow"><div>Escopo / Requisitos</div><span>→</span><div>WBS</div><span>→</span><div>Work packages</div><span>→</span><div>Atividades</div><span>→</span><div>Duração + Dependências</div><span>→</span><div>Cronograma</div></div>
+        <div class="two-col">
+          <div class="process-card"><h3>WBS → Define Activities</h3><p>Os work packages são decompostos/transformados em atividades necessárias para produzir o trabalho.</p></div>
+          <div class="process-card"><h3>Activities → Estimate Duration</h3><p>As durações pertencem ao nível das atividades do cronograma, não simplesmente aos títulos da WBS.</p></div>
+        </div>
+        <div class="process-card full"><h3>WBS → Cost / Risk / Quality</h3><p>Uma WBS clara melhora a identificação de custos, responsabilidades, pontos de risco, critérios de qualidade e pontos de controle.</p></div>
+      </section>
+
+      <section id="pegadinhas" class="section">
+        <div class="section-kicker">15 • prova</div>
+        <h2>Pegadinhas que você deve reconhecer instantaneamente</h2>
+        <div class="trap"><b>“A WBS lista as atividades na ordem de execução.”</b><span>❌ Não. Isso é lógica de cronograma.</span></div>
+        <div class="trap"><b>“Todos os ramos precisam ter o mesmo número de níveis.”</b><span>❌ Não. A profundidade depende da necessidade de gerenciamento.</span></div>
+        <div class="trap"><b>“Mais detalhes sempre significam uma WBS melhor.”</b><span>❌ Não. O excesso de decomposição pode gerar complexidade sem ganho de controle.</span></div>
+        <div class="trap"><b>“Work package é sinônimo de atividade.”</b><span>❌ Não. Atividades podem ser derivadas de work packages.</span></div>
+        <div class="trap"><b>“A WBS pode conter qualquer trabalho que ajude o projeto.”</b><span>❌ Não. A regra dos 100% impede trabalho fora do escopo.</span></div>
+        <div class="trap"><b>“Se um usuário pedir algo novo, basta colocar na WBS.”</b><span>❌ Não quando isso representar mudança de escopo aprovado; use o processo de mudança adequado.</span></div>
+        <div class="trap"><b>“Project Scope e Product Scope são a mesma coisa.”</b><span>❌ Não. Produto = características/funções; projeto = trabalho necessário para produzir o resultado.</span></div>
+      </section>
+
+      <section id="checklist" class="section">
+        <div class="section-kicker">16 • checklist</div>
+        <h2>Checklist de qualidade da sua WBS</h2>
+        <div class="check-grid">
+          <label><input type="checkbox"> O resultado final do projeto está claro?</label>
+          <label><input type="checkbox"> Todos os grandes entregáveis estão representados?</label>
+          <label><input type="checkbox"> Cada nível é 100% coberto pelos filhos?</label>
+          <label><input type="checkbox"> Não há trabalho fora do escopo?</label>
+          <label><input type="checkbox"> Não existe sobreposição entre ramos?</label>
+          <label><input type="checkbox"> Os nós são majoritariamente resultados/entregas?</label>
+          <label><input type="checkbox"> O nível mais baixo é gerenciável?</label>
+          <label><input type="checkbox"> Projeto e operação contínua estão separados?</label>
+          <label><input type="checkbox"> A WBS não foi construída como lista de tarefas?</label>
+          <label><input type="checkbox"> O WBS Dictionary consegue remover ambiguidades?</label>
+          <label><input type="checkbox"> O escopo está rastreável aos requisitos?</label>
+          <label><input type="checkbox"> A estrutura permite controle de desempenho?</label>
+        </div>
+      </section>
+
+      <section id="simulado" class="section quiz">
+        <div class="section-kicker">17 • simulado</div>
+        <h2>Questões de cenário — responda antes de abrir o comentário</h2>
+        <div id="quizBox"></div>
+        <button id="submitQuiz" class="btn primary">Corrigir simulado</button>
+        <div id="score" class="score" hidden></div>
+      </section>
+
+      <section id="gabarito" class="section">
+        <div class="section-kicker">18 • gabarito</div>
+        <h2>Gabarito comentado</h2>
+        <div id="reviewBox"></div>
+      </section>
+
+      <section id="estudos" class="section">
+        <div class="section-kicker">19 • plano de estudo</div>
+        <h2>O que estudar além da WBS</h2>
+        <div class="study-grid">
+          <div><b>Escopo e requisitos</b><p>Para saber de onde a WBS nasce e como evitar incluir trabalho indevido.</p></div>
+          <div><b>Schedule</b><p>Para dominar a transição WBS → atividades → dependências → duração → cronograma.</p></div>
+          <div><b>Change control</b><p>Para reconhecer questões em que alguém tenta alterar a baseline sem passar pelo mecanismo correto.</p></div>
+          <div><b>Cost / EVM</b><p>Para compreender control accounts, baselines de desempenho e integração entre escopo, prazo e custo.</p></div>
+          <div><b>Risk</b><p>Porque decomposição clara aumenta visibilidade sobre pontos de incerteza.</p></div>
+          <div><b>Agile / Hybrid</b><p>O PMP atual cobra cenários adaptativos e híbridos; não trate WBS como assunto exclusivamente waterfall.</p></div>
+        </div>
+        <div class="final-callout"><strong>Objetivo de domínio:</strong> ao receber um enunciado novo, você deve conseguir desenhar a primeira versão da WBS sem copiar um modelo, justificar onde parou e apontar o que pertence ao cronograma em vez da WBS.</div>
+      </section>
+
+      <footer class="footer">
+        <div><strong>Material de estudo WBS / EAP — PMP 2026</strong><br>Produzido para estudo e aplicação profissional. Não substitui o material oficial do PMI.</div>
+        <div class="sources"><b>Fontes oficiais consultadas</b><br>
+          PMI — PMBOK Guide: https://www.pmi.org/standards/pmbok<br>
+          PMI — PMP Exam Update 2026: https://www.pmi.org/certifications/project-management-pmp/new-exam<br>
+          PMI — PMP ECO July 2026: https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf<br>
+          PMI — Work Breakdown Structure: https://www.pmi.org/es-es/disciplined-agile/sitecore/content/pmiheadless/home/blog/blog-posts/2026/08/14/21/04/work-breakdown-structure<br>
+          PMI — Practice Standard / WBS: https://www.pmi.org/learning/library/practice-standard-work-breakdown-structures-8063
+        </div>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
